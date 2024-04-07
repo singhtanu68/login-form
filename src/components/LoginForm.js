@@ -2,8 +2,11 @@
 import { useRef, useState } from "react";
 import { toast } from "sonner";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useRouter } from "next/navigation";
+
 
 export default function LoginForm({ title }) {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
 
   const emailRef = useRef();
@@ -20,7 +23,8 @@ export default function LoginForm({ title }) {
 
     // Simulate login
     if (email === "tanusingh8561@gmail.com" && password === "12345678") {
-      toast.success("Login successful");
+          toast.success("Login successful");
+          router.push("/dashboard");
       
       // Clear fields
       emailRef.current.value = "";
